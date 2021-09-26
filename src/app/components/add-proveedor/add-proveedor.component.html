@@ -1,1 +1,54 @@
-<p>add-proveedor works!</p>
+<form class="row g-3" (ngSubmit)="agregarProveedor()">
+  <div class="col-md-12">
+    <label for="inputEmail4" class="form-label">Razon Social Proveedor</label>
+    <input type="text" class="form-control" id="inputEmail4" name="razonsocial" [(ngModel)]="proveedor.razonsocial">
+  </div>
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Ruc Proveedor</label>
+    <input type="text" class="form-control" id="inputPassword4" name="ruc" [(ngModel)]="proveedor.ruc">
+  </div>
+  <div class="col-md-6">
+    <label for="inputAddress" class="form-label">Dirección Proveedor</label>
+    <input type="text" class="form-control" id="inputAddress" name="direccion" [(ngModel)]="proveedor.direccion" >
+  </div>
+  <div class="col-md-6">
+    <label for="inputAddress2" class="form-label">Telefono Proveedor</label>
+    <input type="text" class="form-control" id="inputAddress2" name="telefono" [(ngModel)]="proveedor.telefono">
+  </div>
+  <div class="col-md-6">
+    <label for="inputCity" class="form-label">Celular Proveedor</label>
+    <input type="text" class="form-control" id="inputCity" name="celular" [(ngModel)]="proveedor.celular">
+  </div>
+  <div class="col-md-6">
+    <label for="inputCity" class="form-label">Estado Proveedor</label>
+    <input type="number" class="form-control" id="inputCity" name="estado" [(ngModel)]="proveedor.estado">
+  </div>
+  <div class="col-md-6">
+    <label for="inputCity" class="form-label">Contacto Proveedor</label>
+    <input type="text" class="form-control" id="inputCity" name="contacto" [(ngModel)]="proveedor.contacto">
+  </div>
+  <div class="col-md-4 mb-3">
+    <label for="inputState" class="form-label">Departamento</label>
+    <select id="inputState" class="form-control" (change)="obtenerProvincias()" name="departamento" [(ngModel)]="proveedor.ubigeo!.departamento">
+      <option selected>Seleccione</option>
+      <option *ngFor="let item of departamento" value="{{ item }}">{{ item }}</option>
+    </select>
+  </div>
+  <div class="col-md-4 mb-3">
+    <label for="inputState" class="form-label">Provincias</label>
+    <select id="inputState" class="form-control" name="departamento" [(ngModel)]="proveedor.ubigeo!.provincia" (change)="obtenerDistrito()">
+      <option selected>Seleccione</option>
+      <option *ngFor="let item of provincias" value="{{ item }}">{{ item }}</option>
+    </select>
+  </div>
+  <div class="col-md-4 mb-3">
+    <label for="inputState" class="form-label">Distritos</label>
+    <select id="inputState" class="form-control" name="distrito" [(ngModel)]="proveedor.ubigeo!.idUbigeo">
+      <option selected>Seleccione</option>
+      <option *ngFor="let item of distrito" value="{{ item.idUbigeo }}">{{ item.distrito }}</option>
+    </select>
+  </div>
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">Guardar Proveedor</button>
+  </div>
+</form>
