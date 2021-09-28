@@ -48,7 +48,10 @@ export class AddProveedorComponent implements OnInit {
 
   agregarProveedor(){
 
-    this.proveedorServicio.agregarProveedor(this.proveedor).subscribe(resp=> console.log(resp))
+    this.proveedorServicio.agregarProveedor(this.proveedor).subscribe(resp=> {
+      console.log(resp);
+      alert("Proveedor Registrado")
+    })
 
   }
 
